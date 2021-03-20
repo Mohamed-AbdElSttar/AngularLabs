@@ -1,0 +1,102 @@
+
+
+
+<!-- <div class="dropdown mb-3">
+  <button type="button" class="btn btn-dark dropdown-toggle w-100" data-toggle="dropdown">
+    Select Category
+  </button>
+  <div class="dropdown-menu w-100 text-center">
+    <a class="dropdown-item" href="#" *ngFor="let cat of categories">{{ cat.name }}
+    <div class="dropdown-divider"></div></a>
+  </div>
+</div> -->
+<table *ngIf="!isPurshausedInChild" class="table text-center">
+  <thead>
+    <th>No.</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Quntatity</th>
+    <th>Image</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prd of filteredProducts; let i=index" [ngClass]="{'text-danger':(prd.quntatity==1)}"  [hidden]="prd.quntatity==0">
+      <td>{{i+1}} </td>
+      <td>{{prd.name}}</td>
+      <td>{{prd.price|usdtoegp:15.6}}</td>
+      <td *ngIf="prd.quntatity==0">Out of stock</td>
+      <td *ngIf="prd.quntatity==1">Last Item</td>
+      <td *ngIf="prd.quntatity>1">{{prd.quntatity}}</td>
+      <td><img width="100px" height="100px" src="{{prd.img}}"></td>
+      <td><input class="w-100 ml-1 mr-1 text-center" type="number" min='1' max='{{prd.quntatity}}' #Pcount></td>
+      <td><button class="btn btn-info" (click)="TotalPrice(prd.price,Pcount.value)">Add</button></td>
+      <td><a class="btn btn-danger" [routerLink]="['/product',prd.id]">more(html)</a></td>
+      <td><button class="btn btn-primary" (click)="ShowMore(prd.id)">more(code)</button></td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+
+
+<!-- <div class="dropdown mb-3">
+  <button type="button" class="btn btn-dark dropdown-toggle w-100" data-toggle="dropdown">
+    Select Category
+  </button>
+  <div class="dropdown-menu w-100 text-center">
+    <a class="dropdown-item" href="#">Mobile Phones</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Food</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Laptops</a>
+  </div>
+</div>
+<div class="row" id="products">
+  <div class="col-md-3 mb-3">
+    <div class="card p-1">
+      <img class="card-img-top image-fluid" height="200px" src="assets/realme6.jpg" alt="Card image">
+      <div class="card-body">
+        <h6 class="card-title">Realme 6</h6>
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 mb-3">
+    <div class="card p-1">
+      <img class="card-img-top image-fluid" height="200px" src="assets/realme6-pro.jpg" alt="Card image">
+      <div class="card-body">
+        <h6 class="card-title">Realme 6 Pro</h6>
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 mb-3">
+    <div class="card p-1">
+      <img class="card-img-top image-fluid" height="200px" src="assets/Dell-Inspiron-15r-3593.jpg" alt="Card image">
+      <div class="card-body">
+        <h6 class="card-title">Dell Inspiron 15R 3593</h6>
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 mb-3">
+    <div class="card p-1">
+      <img class="card-img-top image-fluid" height="200px" src="assets/Dell-Inspiron-15r-5537.jpg" alt="Card image">
+      <div class="card-body">
+        <h6 class="card-title">Dell Inspiron 15R 5537</h6>
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 mb-3">
+    <div class="card p-1">
+      <img class="card-img-top image-fluid" height="200px" src="assets/realme-watch.jpg" alt="Card image">
+      <div class="card-body">
+        <h6 class="card-title">Realme Watch</h6>
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </div>
+  </div>
+</div> -->
+

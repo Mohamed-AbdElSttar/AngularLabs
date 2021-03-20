@@ -1,0 +1,10 @@
+<div class="container mt-5 text-center">
+  <div class="card">
+    <img class="card-img-top" src="{{prd.img}}" alt="Card image">
+    <div class="card-body">
+      <h4 class="card-title">{{prd.name}}</h4>
+      <p class="card-text">{{prd.price|usdtoegp}}}</p>
+      <a (click)="goBack()" class="btn btn-primary">Back</a>
+    </div>
+  </div>
+</div>

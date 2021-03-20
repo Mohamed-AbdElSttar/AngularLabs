@@ -1,0 +1,12 @@
+#products .card{
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+#products .card:hover{
+  transform: scale(1.05);
+}
+
+.hidden{
+  display: none;
+}

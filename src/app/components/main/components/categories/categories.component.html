@@ -1,0 +1,29 @@
+<div class="clearfix">
+  <div class="float-left">
+    <img src="{{logo}}" width="150px" height="150px" alt="">
+  </div>
+  <div class="float-right">
+    <h1 class="text-center">{{ name }}</h1>
+    <h3 class="text-center" *ngIf="!discount">No Discount</h3>
+  </div>
+</div>
+
+<h4 #sCatId class="text-center">{{clientName}}</h4>
+<div class="form-group mt-5">
+  <label for="clientName">Client Name : </label>
+  <input type="text" class="form-control" name="clientName" id="clientName" [(ngModel)]="clientName">
+</div>
+<div class="dropdown mb-3">
+  <label for="selectCat">Select a category : </label>
+  <select class="btn btn-dark dropdown-toggle w-100 text-center" name="selectCat" id="selectCat" [(ngModel)]="catId">
+    <option  *ngFor="let cat of categories" [value]="cat.id">{{ cat.name }}</option>
+  </select>
+</div>
+<div>
+  <app-products [selectedCatId]="catId" [isPurshausedInChild]="isPurshaused" (totalPriceToParent)="CalTotalAfterDisCount($event)"></app-products>
+</div>
+<h4 class="mt-5">Total In parent {{totalPriceInCats|usdtoegp:15.6}}</h4>
+
+<button class="btn btn-primary" (click)="hideTable()">Buy</button>
+<button class="btn btn-primary ml-5" (click)="newTrade()">New Trade</button>
+<h3 *ngIf="isPurshaused" class="mt-5">Thanks <span [ngStyle]="{'color':'blue'}">{{clientName}}</span> for buying from us</h3>
