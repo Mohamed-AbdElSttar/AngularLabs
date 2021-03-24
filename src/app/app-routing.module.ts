@@ -6,7 +6,6 @@ import { ApiProductsComponent } from './components/main/components/api/api-produ
 import { CategoriesComponent } from './components/main/components/categories/categories.component';
 import { NotFoundComponent } from './components/main/components/not-found/not-found.component';
 import { ProductDetailsComponent } from './components/main/components/product-details/product-details.component';
-import { ProductsComponent } from './components/main/components/products/products.component';
 import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [

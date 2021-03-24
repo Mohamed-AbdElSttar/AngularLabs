@@ -10,14 +10,13 @@ import { ApiProductService } from 'src/app/services/api-product.service';
 export class ApiProductsComponent implements OnInit {
   products:ApiProduct[];
 
-  constructor(private _apiPrdServ:ApiProductService) { }
+  constructor(private apiPrdServ:ApiProductService) { }
 
   ngOnInit(): void {
-    this._apiPrdServ.getAllProducts().subscribe((res)=>{
+    this.apiPrdServ.getAllProducts().subscribe((res)=>{
       this.products=res;
     }, (err)=>{
       console.log(err);
     });
   }
-
 }

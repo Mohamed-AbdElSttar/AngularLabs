@@ -19,7 +19,7 @@ export class ApiProductService {
     return this._http.get<ApiProduct>(`${environment.ApiUrl}/product/${_id}`);
   }
 
-  insertProduct(prd:ApiProduct){
+  insertProduct(prd:ApiProduct):Observable<ApiProduct>{
     const httpOptions = {headers:new HttpHeaders({
       'Content-Type': 'application/json',
       'Accept': '*/*'

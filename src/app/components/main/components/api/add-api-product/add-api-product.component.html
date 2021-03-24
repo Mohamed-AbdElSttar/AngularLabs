@@ -1,1 +1,37 @@
-<p>add-api-product works!</p>
+<div class="container mt-5">
+  <form [formGroup]="myForm" (ngSubmit)="Add()">
+    <div class="form-group">
+      <label for="name">Product Name :</label>
+      <input formControlName="formName" type="text" name="name" id="name" class="form-control">
+      <div class="alert alert-danger" role="alert" *ngIf="myForm.controls['formName'].invalid && myForm.controls['formName'].touched">
+        <p *ngIf="myForm.controls['formName'].errors.required">Product Name is required</p>
+        <p *ngIf="myForm.controls['formName'].errors.minlength">Product Name must be 3 letters or more</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="name">Product Description :</label>
+      <textarea formControlName="formDesc" type="text" name="desc" id="desc" class="form-control"></textarea>
+      <div class="alert alert-danger" role="alert" *ngIf="myForm.controls['formDesc'].invalid && myForm.controls['formDesc'].touched">
+        <p *ngIf="myForm.controls['formDesc'].errors.required">Product Description is required</p>
+        <p *ngIf="myForm.controls['formDesc'].errors.minlength">Product Dame must be 15 letters or more</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="quntitry">Product Quantity :</label>
+      <input formControlName="formQuntitry" type="number" name="quntitry" id="quntitry" min="1" class="form-control">
+      <div class="alert alert-danger" role="alert" *ngIf="myForm.controls['formQuntitry'].invalid && myForm.controls['formQuntitry'].touched">
+        <p *ngIf="myForm.controls['formQuntitry'].errors.required">Product Name is required</p>
+        <p *ngIf="myForm.controls['formQuntitry'].errors.minlength">Product Name must be 3 letters or more</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="price">Product Price :</label>
+      <input formControlName="formPrice" type="number" name="price" id="price" min="0" class="form-control">
+      <div class="alert alert-danger" role="alert" *ngIf="myForm.controls['formPrice'].invalid && myForm.controls['formPrice'].touched">
+        <p *ngIf="myForm.controls['formPrice'].errors.required">Product Name is required</p>
+        <p *ngIf="myForm.controls['formPrice'].errors.minlength">Product Name must be 3 letters or more</p>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Add</button>
+  </form>
+</div>
